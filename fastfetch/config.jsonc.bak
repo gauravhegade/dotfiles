@@ -2,11 +2,10 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
-        "type": "kitty-direct",
+        "type": "small",
         "padding": {
-            "top": 3
-        },
-        "source": "/usr/share/pixmaps/fedora-logo-sprite.png"
+            "top": 1
+        }
     },
     "display": {
         "separator": "",
