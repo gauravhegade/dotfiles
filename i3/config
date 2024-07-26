@@ -52,9 +52,9 @@ tiling_drag modifier titlebar
 ## USER CONFIG
 
 set $terminalEmulator /usr/bin/kitty
-set $fileManager /usr/bin/thunar
+set $fileManager /usr/bin/nautilus
 set $screenshotTool /usr/bin/flameshot gui
-set $browserApp /usr/bin/firefox
+set $browserApp /usr/bin/librewolf
 
 bindsym $mod+Return exec $terminalEmulator;focus
 bindsym $mod+Shift+f exec $fileManager;focus
@@ -73,7 +73,8 @@ exec --no-startup-id redshift -O 5700
 bindsym $mod+m bar mode toggle
 
 # Lock screen
-bindsym $mod+l exec i3lock -i /home/kin0w/Pictures/Wallpapers/rick-tokyonight.png
+bindsym $mod+Esc exec i3lock 
+# -i /home/kin0w/Pictures/Wallpapers/rick-tokyonight.png
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%; exec notify-send 'brightness up 5%'
@@ -103,6 +104,12 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
@@ -116,7 +123,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Shift+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
