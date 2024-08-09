@@ -4,13 +4,15 @@
     "logo": {
         "type": "kitty-direct",
         "padding": {
-            "top": 3
+            "top": 1
         },
         "source": "/usr/share/pixmaps/fedora-logo-sprite.png"
     },
     "display": {
         "separator": "",
-        "keyWidth": 15
+        "key": {
+          "width": 15
+        } 
     },
     "modules": [
         {

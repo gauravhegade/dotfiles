@@ -1,0 +1,19 @@
+[global]
+  font = JetBrainsMono Nerd Font 16
+  format = "<b>%a</b>\n<i>%s</i>%p %n \n%b"
+  sort = yes
+  indicate_hidden = yes
+  alignment = left
+  word_wrap = yes
+  width = 350
+  height = 180
+  transparency = 0
+  separator_height = 3
+  icon_position = left
+  corner_radius = 10
+  progress_bar = true
+  progress_bar_height = 10
+  mouse_left_click = close_current
+  mouse_middle_click = close_all 
+  mouse_right_click = context
+  padding = 5

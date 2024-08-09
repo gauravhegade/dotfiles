@@ -52,9 +52,9 @@ tiling_drag modifier titlebar
 ## USER CONFIG
 
 set $terminalEmulator /usr/bin/kitty
-set $fileManager /usr/bin/nautilus
+set $fileManager /usr/bin/thunar
 set $screenshotTool /usr/bin/flameshot gui
-set $browserApp /usr/bin/librewolf
+set $browserApp /usr/bin/firefox
 
 bindsym $mod+Return exec $terminalEmulator;focus
 bindsym $mod+Shift+f exec $fileManager;focus
@@ -104,7 +104,6 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -152,8 +151,23 @@ bindsym $mod+a focus parent
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
+# bind apps to workspaces
+assign [class="Navigator"] 1
+for_window [class="Navigator"] move container to workspace 1, focus
+
+assign [class="Thunar"] 2
+for_window [class="Thunar"] move container to workspace 2, focus
+
+assign [class="Spotify"] 3
+for_window [class="Spotify"] move container to workspace 3, focus
+
+assign [class="Signal"] 4
+assign [class="discord"] 4
+for_window [class="Signal"] move container to workspace 4, focus
+for_window [class="discord"] move container to workspace 4, focus
 
 # switch to workspace
+bindsym $mod+Tab workspace next
 bindsym $alt+Control+Right workspace next
 bindsym $alt+Control+Left workspace prev
 bindsym $mod+1 workspace 1
@@ -240,7 +254,7 @@ bar {
 
 # window rules, you can find the window class using xprop
 assign [class=URxvt] 1
-for_window [class=Viewnior|Nitrogen|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
+for_window [class=Viewnior|Nitrogen|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|BleachBit] floating enable
 for_window [class=URxvt|mpv|Vlc|Lxappearance|Lxrandr|Arandr] focus
 
 # Borders
@@ -307,21 +321,22 @@ set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
 
-# Set shut down, restart and locking features
-bindsym $mod+0 mode "$mode_system"
-set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+# Power System
+bindsym $mod+0 mode "$mode_system" 
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+
+mode "$mode_system" {
+  bindsym l exec --no-startup-id i3exit lock, mode "default"
+  bindsym e exec --no-startup-id i3exit logout, mode "default"
+  bindsym s exec --no-startup-id i3exit suspend, mode "default"
+  bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+  bindsym r exec --no-startup-id i3exit reboot, mode "default"
+  bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 # redshift modes

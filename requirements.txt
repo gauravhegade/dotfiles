@@ -1,0 +1,12 @@
+i3
+i3blocks
+rofi
+dunst
+nitrogen
+kitty
+flameshot
+copyq
+numlockx
+redshift
+brightnessctl
+acpi
