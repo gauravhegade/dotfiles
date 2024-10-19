@@ -25,6 +25,50 @@ return {
 	},
 	{
 		"eandrju/cellular-automaton.nvim",
-		vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>"),
+		vim.keymap.set("n", "<leader>mir", "<cmd>CellularAutomaton make_it_rain<CR>"),
+	},
+	{
+		"folke/zen-mode.nvim",
+		config = function()
+			vim.keymap.set("n", "<leader>zz", function()
+				require("zen-mode").setup({
+					window = {
+						width = 90,
+						options = {},
+					},
+				})
+				require("zen-mode").toggle()
+				vim.wo.wrap = false
+				vim.wo.number = true
+				vim.wo.rnu = true
+			end)
+
+			vim.keymap.set("n", "<leader>zZ", function()
+				require("zen-mode").setup({
+					window = {
+						width = 80,
+						options = {},
+					},
+				})
+				require("zen-mode").toggle()
+				vim.wo.wrap = false
+				vim.wo.number = false
+				vim.wo.rnu = false
+				vim.opt.colorcolumn = "0"
+			end)
+		end,
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lualine").setup({
+				options = {
+					icons_enabled = true,
+					section_separators = { left = "", right = "" },
+					component_separators = { left = "", right = "" },
+				},
+			})
+		end,
 	},
 }
