@@ -12,15 +12,17 @@ vim.g.have_nerd_font = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
--- Make line numbers default
 vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.textwidth = 80
 vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+vim.opt.termguicolors = true
+vim.opt.colorcolumn = "80"
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
@@ -778,6 +780,19 @@ require("lazy").setup({
 		"folke/tokyonight.nvim",
 		-- "Mofiqul/vscode.nvim",
 		priority = 1000, -- Make sure to load this before all the other start plugins.
+		config = function()
+			require("tokyonight").setup({
+				style = "night",
+				on_highlights = function(highlight)
+					highlight.ColorColumn = {
+						bg = "#1a1b26",
+					}
+				end,
+				on_colors = function(colors)
+					colors.bg = "#15151E"
+				end,
+			})
+		end,
 		init = function()
 			vim.cmd.colorscheme("tokyonight-night")
 
