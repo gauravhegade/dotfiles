@@ -61,9 +61,6 @@ vim.keymap.set(
 -- quit file
 vim.keymap.set("n", "<C-w>", "<cmd>bd<CR>", { desc = "Close current buffer", noremap = true, silent = true })
 
--- delete single character without copying into register
-vim.keymap.set("n", "x", "_x", { desc = "Delete character without yanking", noremap = true, silent = true })
-
 -- Vertical scroll and center
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center cursor", noremap = true, silent = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center cursor", noremap = true, silent = true })
@@ -83,9 +80,6 @@ vim.keymap.set(
 -- Stay in indent mode
 vim.keymap.set("v", "<", "<gv", { desc = "Stay in indent mode when decreasing indent", noremap = true, silent = true })
 vim.keymap.set("v", ">", ">gv", { desc = "Stay in indent mode when increasing indent", noremap = true, silent = true })
-
--- quit file with Ctrl-Q
-vim.keymap.set("n", "<C-q>", "<cmd> q <CR>", { desc = "Quit current file", noremap = true, silent = true })
 
 -- Resize with arrows
 vim.keymap.set("n", "<Up>", ":resize -2<CR>", { desc = "Resize window up", noremap = true, silent = true })
